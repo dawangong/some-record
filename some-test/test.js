@@ -1,8 +1,6 @@
-let obj1 = {
-	a: 'a',
-	b: 'b'
-};
-
-let obj2 = {...obj1};
-
-console.log(obj2);
+var arr = [1,2,[1,3,4,5,[3,4],5,7],668];
+var arrs = [];
+arr.toString().split(',').forEach((item) => {
+  arrs.push(Number(item));
+});
+console.log(arrs);

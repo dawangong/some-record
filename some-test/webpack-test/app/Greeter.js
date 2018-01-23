@@ -1,5 +1,5 @@
 import config from '../config.json';
-module.exports = function() {
+export default function() {
 	let greet = document.createElement('div');
 	greet.textContent = config.greetText;
 	return greet;

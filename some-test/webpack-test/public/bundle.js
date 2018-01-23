@@ -65,22 +65,35 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-const greeter = __webpack_require__(1);
-document.querySelector("#root").appendChild(greeter());
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Greeter_js__ = __webpack_require__(1);
+
+document.querySelector("#root").appendChild(Object(__WEBPACK_IMPORTED_MODULE_0__Greeter_js__["a" /* default */])());
 
 
 /***/ }),
 /* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__config_json__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__config_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__config_json__);
+
+/* harmony default export */ __webpack_exports__["a"] = (function() {
+	let greet = document.createElement('div');
+	greet.textContent = __WEBPACK_IMPORTED_MODULE_0__config_json___default.a.greetText;
+	return greet;
+});;
+
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports) {
 
-module.exports = function() {
-	var greet = document.createElement('div');
-	greet.textContent = "Hi there and greetings!";
-	return greet;
-};
-
+module.exports = {"greetText":"Hi there and greetings from JSON!"}
 
 /***/ })
 /******/ ]);
