@@ -7,3 +7,15 @@ let entries = letter.entries();
 console.log(entries.next().value); // [0, 'a']
 console.log(entries.next().value); // [1, 'b']
 console.log(entries.next().value); // [2, 'c']
+
+for (let i of letter.keys()) {
+	console.log(i);
+}
+
+for (let i of letter.entries()) {
+	console.log(i);
+}
+
+for (let i of letter) {
+	console.log(i);
+}
