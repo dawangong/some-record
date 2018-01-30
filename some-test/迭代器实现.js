@@ -1,11 +1,12 @@
+//迭代器需求示范
 let it = makeIterator([1,2,3]);
 
 console.log(it.next().value);
 console.log(it.next().value);
 console.log(it.next().value);
 
-
-function makeIterator (arr) {
+(function(window){
+	function makeIterator (arr) {
 	let index = 0;
 	return {
 		next:function () {
@@ -13,3 +14,6 @@ function makeIterator (arr) {
 		}
 	};
 }
+	window.makeIterator = makeIterator;
+})(window);
+
