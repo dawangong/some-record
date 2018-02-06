@@ -28,3 +28,7 @@
 
 // var arr = group([1,2,3,4,5],2);
 // console.log(arr);
+
+// let arr = [1,2,3,4,5];
+// let arr_ = arr.splice(0,1).concat([',']).join('');
+// console.log(arr_);
