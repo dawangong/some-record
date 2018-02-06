@@ -15,16 +15,16 @@
 // a = [4,5,6];
 // console.log(b);
 
-function group(array, subGroupLength) {
-		let index = 0;
-		const newArray = [];
+// function group(array, subGroupLength) {
+// 		let index = 0;
+// 		const newArray = [];
 
-		while (index < array.length) {
-			newArray.push(array.slice(index, index += subGroupLength));
-		}
-		return newArray;
-	}
+// 		while (index < array.length) {
+// 			newArray.push(array.slice(index, index += subGroupLength));
+// 		}
+// 		return newArray;
+// 	}
 
 
-var arr = group([1,2,3,4,5],2);
-console.log(arr);
+// var arr = group([1,2,3,4,5],2);
+// console.log(arr);
