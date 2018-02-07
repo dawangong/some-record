@@ -3,8 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<script src="实现一个promise.js"></script>
+    <script src="promise封装ajax.js"></script>
 </head>
 <body>
+    <script>
+        ajax({method:'GET',url:'test.json',async:true}).then((res) => {
+			console.log(res);
+		});
+    </script>
 </body>
 </html>
