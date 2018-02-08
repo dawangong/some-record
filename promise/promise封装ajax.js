@@ -1,7 +1,11 @@
 let ajax = (function (window) {
 	return function (options) {
 		return new Promise((resolve, reject) => {
-			let _options = {};
+			let _options = {
+				method: 'GET',
+				async: 'true',
+				data: 'null'
+			};
 			for (let i in options) {
 				_options[i] = options[i];
 			}
@@ -20,7 +24,7 @@ let ajax = (function (window) {
 			}
 			xhr.open(_options.method, _options.url, _options.async);
 			if (_options.method === 'GET') {
-				xhr.send(null);
+				xhr.send(_options.data);
 			}
 			else {
 				xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
