@@ -1,23 +1,26 @@
 class People {
-    constructor () {
+	constructor() {
 
-    }
-    speak() {
-        console.log('你好');
-    }
+	}
+
+	speak() {
+		console.log('你好');
+	}
 }
 
 let dav = new People();
 dav.speak();
 
-class blackPeople extends People{
-    constructor () {
-        super();
-    }
-    go () {
-        console.log('走');
-    }
+class blackPeople extends People {
+	constructor() {
+		super();
+	}
+
+	go() {
+		console.log('走');
+	}
 }
+
 let wxm = new blackPeople();
 wxm.go();
 wxm.speak();

@@ -1,35 +1,35 @@
-var Publish = function() {
-    var liseners = [];
-    return {
-        subscribe: function(lisener) {
-            liseners.push(lisener);
-        },
-        unsubscribe: function(lisener) {
-            var index = liseners.indexOf(lisener);
-            if (index != -1) {
-                liseners.splice(index, 1);
-            }
-        },
-        notify: function(lisener, message) {
-            var index = liseners.indexOf(lisener);
-            if (index != -1) {
-                liseners[index].notify(message);
-            }
-        },
-        notifyAll: function(message) {
-            liseners.forEach(function(lisener) {
-                lisener.notify(message);
-            });
-        }
-    };
+var Publish = function () {
+	var liseners = [];
+	return {
+		subscribe: function (lisener) {
+			liseners.push(lisener);
+		},
+		unsubscribe: function (lisener) {
+			var index = liseners.indexOf(lisener);
+			if (index != -1) {
+				liseners.splice(index, 1);
+			}
+		},
+		notify: function (lisener, message) {
+			var index = liseners.indexOf(lisener);
+			if (index != -1) {
+				liseners[index].notify(message);
+			}
+		},
+		notifyAll: function (message) {
+			liseners.forEach(function (lisener) {
+				lisener.notify(message);
+			});
+		}
+	};
 };
 
 function Subscriber(name) {
-    this.name = name;
+	this.name = name;
 }
 
-Subscriber.prototype.notify = function(message) {
-    console.log(this.name + '收到了' + message);
+Subscriber.prototype.notify = function (message) {
+	console.log(this.name + '收到了' + message);
 };
 
 var wh = new Subscriber('wh');
