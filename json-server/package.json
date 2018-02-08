@@ -1,0 +1,12 @@
+{
+  "name": "json-server",
+  "version": "1.0.0",
+  "description": "json-server的学习",
+  "main": " ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "json-server data.json -p 4000"
+  },
+  "author": "wh.q",
+  "license": "ISC"
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="promise封装ajax.js"></script>
+</head>
+<body>
+    <button class="btn">发送数据</button>
+<script>
+    let btn = document.getElementsByClassName('btn')[0];
+    addEventListener('click',() => {
+		ajax({
+			url: " http://localhost:4000/news",
+			method: "POST",
+			data: {
+				"id": 3,
+				"title": "2029年人类将实现永生",
+				"date": "2017-09-13",
+				"likes": 535,
+				"views": 23900
+			}
+		});
+    },false);
+</script>
+</body>
+</html>
