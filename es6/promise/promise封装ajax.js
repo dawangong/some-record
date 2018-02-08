@@ -1,4 +1,11 @@
 let ajax = (function (window) {
+	function uri(obj){
+		let arr=[];
+		for(let i in obj){
+			arr.push(encodeURIComponent(i)+'='+encodeURIComponent(obj[i]));
+		}
+		return arr.join('&');
+	}
 	return function (options) {
 		return new Promise((resolve, reject) => {
 			let _options = {
@@ -23,6 +30,7 @@ let ajax = (function (window) {
 				_options.url = `${_options.url}?m=${Math.random()}`;
 			}
 			xhr.open(_options.method, _options.url, _options.async);
+			_options.data = uri(_options.data);
 			if (_options.method === 'GET') {
 				xhr.send(_options.data);
 			}
