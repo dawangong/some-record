@@ -1,21 +1,24 @@
 let Snack = (function (window) {
 	function Snack() {
-		this.init = function () {
-			this.random();
-		}
+		this.init ();
 	}
-
-	Snack.prototype.random = function () {
-		let x = Math.floor(Math.random() * 400 + 1);
-		let y = Math.floor(Math.random() * 400 + 1);
-		this.create(x, y)
+	//初始化
+	Snack.prototype.init=function () {
+		this.create();
 	};
-	Snack.prototype.create = function (x, y) {
+	//随机选点
+	Snack.prototype.random = function () {
+		this.x = Math.floor(Math.random() * 400 + 1);
+		this.y = Math.floor(Math.random() * 400 + 1);
+	};
+	//创造游戏条件
+	Snack.prototype.create = function () {
+		this.random();
 		//创建画布
 		let drawCloth = document.getElementById('cvs').getContext('2d');
 		//创建蛇头
 		drawCloth.fillStyle = 'red';
-		drawCloth.fillRect(x, y, 5, 5);
+		drawCloth.fillRect(this.x, this.y, 10, 10);
 	};
 	return Snack;
 })(window);
