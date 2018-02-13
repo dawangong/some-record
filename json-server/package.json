@@ -8,5 +8,14 @@
     "start": "json-server data.json -p 4000"
   },
   "author": "wh.q",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "mockjs": "^1.0.1-beta3"
+  },
+  "devDependencies": {
+    "webpack": "^3.10.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1"
+  }
 }
