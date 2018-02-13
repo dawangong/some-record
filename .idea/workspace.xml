@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce902be6-382c-4372-a8b0-4363e03ca4b9" name="默认的" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/json-server/.babelrc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/json-server/data.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/some-test/es5阶段两种模块化方式的分析.html" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/json-server/data.json" afterPath="$PROJECT_DIR$/json-server/data.json" />
-      <change beforePath="$PROJECT_DIR$/json-server/package-lock.json" afterPath="$PROJECT_DIR$/json-server/package-lock.json" />
-      <change beforePath="$PROJECT_DIR$/json-server/package.json" afterPath="$PROJECT_DIR$/json-server/package.json" />
-      <change beforePath="$PROJECT_DIR$/json-server/test-json.html" afterPath="$PROJECT_DIR$/json-server/test-json.html" />
-      <change beforePath="$PROJECT_DIR$/some-test/webpack-test/package.json" afterPath="$PROJECT_DIR$/some-test/webpack-test/package.json" />
+      <change beforePath="$PROJECT_DIR$/test.html" afterPath="$PROJECT_DIR$/test.html" />
       <change beforePath="$PROJECT_DIR$/test.js" afterPath="$PROJECT_DIR$/test.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -23,12 +18,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test.html">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="es5阶段两种模块化方式的分析.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/some-test/es5阶段两种模块化方式的分析.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="45" column="15" lean-forward="true" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
+            <state relative-caret-position="258">
+              <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -40,8 +35,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package_json" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -51,9 +46,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/函数拓展/箭头函数.js" />
         <option value="$PROJECT_DIR$/函数拓展/双冒号运算符.js" />
-        <option value="$PROJECT_DIR$/test.js" />
         <option value="$PROJECT_DIR$/es6/Generator/for-of遍历.js" />
         <option value="$PROJECT_DIR$/es6/Generator/Generator 函数和for...of循环实现斐波那契数列.js" />
         <option value="$PROJECT_DIR$/es6/Generator/yield的返回值.js" />
@@ -101,7 +94,9 @@
         <option value="$PROJECT_DIR$/some-test/webpack-test/package.json" />
         <option value="$PROJECT_DIR$/some-test/webpack-test/app/main.js" />
         <option value="$PROJECT_DIR$/json-server/data.js" />
+        <option value="$PROJECT_DIR$/test.js" />
         <option value="$PROJECT_DIR$/test.html" />
+        <option value="$PROJECT_DIR$/some-test/es5阶段两种模块化方式的分析.html" />
       </list>
     </option>
   </component>
@@ -143,6 +138,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -155,12 +152,15 @@
               <item name="some-record" type="462c0819:PsiDirectoryNode" />
               <item name="es6" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="some-record" type="b2602c69:ProjectViewProjectNode" />
+              <item name="some-record" type="462c0819:PsiDirectoryNode" />
+              <item name="some-test" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -194,7 +194,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.自定义原始数据结构.js">
+  <component name="RunManager" selected="Node.js.test.js">
     <configuration name="自定义原始数据结构.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="自定义原始数据结构.js" working-dir="$PROJECT_DIR$/es6/class" />
     <configuration name="双冒号运算符.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="$PROJECT_DIR$/es6/函数拓展/双冒号运算符.js" working-dir="$PROJECT_DIR$/es6/函数拓展" />
     <configuration name="数组嵌套.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="数组嵌套.js" working-dir="$PROJECT_DIR$/some-test" />
@@ -202,15 +202,18 @@
     <configuration name="class基本.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="class基本.js" working-dir="$PROJECT_DIR$/es6/class" />
     <configuration name="class继承.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="class继承.js" working-dir="$PROJECT_DIR$/es6/class" />
     <configuration name="es6-class.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-js-file="es6-class.js" working-dir="$PROJECT_DIR$/some-test" />
-    <list size="3">
+    <configuration name="test.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="test.js" working-dir="$PROJECT_DIR$" />
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Node.js.es6-class.js" />
       <item index="1" class="java.lang.String" itemvalue="Node.js.class基本.js" />
       <item index="2" class="java.lang.String" itemvalue="Node.js.自定义原始数据结构.js" />
+      <item index="3" class="java.lang.String" itemvalue="Node.js.test.js" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Node.js.自定义原始数据结构.js" />
-        <item index="1" class="java.lang.String" itemvalue="Node.js.class基本.js" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Node.js.test.js" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.自定义原始数据结构.js" />
+        <item index="2" class="java.lang.String" itemvalue="Node.js.class基本.js" />
       </list>
     </recent_temporary>
   </component>
@@ -245,11 +248,13 @@
       <workItem from="1518083399919" duration="785000" />
       <workItem from="1518138730096" duration="4328000" />
       <workItem from="1518484840092" duration="2415000" />
+      <workItem from="1518489050866" duration="932000" />
+      <workItem from="1518490131720" duration="1850000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44730000" />
+    <option name="totallyTimeSpent" value="47512000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -273,8 +278,8 @@
       <window_info id="Quokka" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964337" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="CSS-X-Fire" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25543478" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18695652" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25543478" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15833333" sideWeight="0.51007426" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -323,13 +328,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/es6/函数拓展/箭头函数注意点.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="6" column="43" lean-forward="false" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/es6/函数拓展/rest.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -397,13 +395,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -676,10 +667,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="590">
+          <caret line="20" column="2" lean-forward="false" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="45" column="15" lean-forward="true" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
+        <state relative-caret-position="511">
+          <caret line="67" column="15" lean-forward="false" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/some-test/es5阶段两种模块化方式的分析.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
           <folding />
         </state>
       </provider>

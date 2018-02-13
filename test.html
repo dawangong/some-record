@@ -47,6 +47,25 @@
 
 	let str = getNeedStr('阿萨德吉林省会计等凉快圣诞节了萨克打架了快速点击拉开', 30, '...');
 	console.log(str);
+
+	let get = (function (window) {
+		function Get() {
+			this.x = 'speak';
+		}
+		Get.prototype.speak = function () {
+			console.log(this.x);
+		};
+		Get.prototype.walk = function () {
+			console.log('walk');
+		};
+		Get.prototype.sleep = function () {
+			console.log('sleep');
+		};
+		return Get;
+	})(window);
+
+	let gs =new get();
+	gs.speak();
 </script>
 </body>
 </html>

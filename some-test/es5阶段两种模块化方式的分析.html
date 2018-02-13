@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+		let Get = (function (window) {
+			function Get() {
+				this.x = '111';
+			}
+			Get.prototype.speak = function () {
+				console.log(this.x);
+			};
+			return Get;
+		})(window);
+
+		(function (window) {
+			function Get() {
+				this.x = '111';
+			}
+			Get.prototype.speak = function () {
+				console.log(this.x);
+			};
+			window.Get = Get;
+		})(window);
+    </script>
+</body>
+</html>
