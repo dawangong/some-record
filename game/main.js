@@ -6,11 +6,6 @@ let Snack = (function (window) {
 	Snack.prototype.init=function () {
 		this.create();
 	};
-	//随机选点
-	Snack.prototype.random = function () {
-		this.x = Math.floor(Math.random() * 400 + 1);
-		this.y = Math.floor(Math.random() * 400 + 1);
-	};
 	//创造游戏条件
 	Snack.prototype.create = function () {
 		this.random();
@@ -19,6 +14,19 @@ let Snack = (function (window) {
 		//创建蛇头
 		drawCloth.fillStyle = 'red';
 		drawCloth.fillRect(this.x, this.y, 10, 10);
+		this.random();
+		//创建食物
+		drawCloth.fillStyle = 'black';
+		drawCloth.fillRect(this.x, this.y, 10, 10);
+	};
+	//随机选点
+	Snack.prototype.random = function () {
+		this.x = Math.floor(Math.random() * 400 + 1);
+		this.y = Math.floor(Math.random() * 400 + 1);
+	};
+	//移动
+	Snack.prototype.move =function () {
+
 	};
 	return Snack;
 })(window);
