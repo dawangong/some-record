@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+        }
+        #cvs {
+            background: aquamarine;
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="cvs" width="400px" height="400px"></canvas>
+    <script>
+        let drawCloth = document.getElementById('cvs').getContext('2d');
+    </script>
+</body>
+</html>
