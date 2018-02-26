@@ -4,13 +4,26 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="promise封装ajax.js"></script>
+    <!--<script src="jquery-3.3.1.min.js"></script>-->
 </head>
 <body>
 <button class="btn">接收数据</button>
 <script>
 	let btn = document.getElementsByClassName('btn')[0];
 	addEventListener('click', () => {
-		ajax({url: " http://localhost:4000/news?id_like=1"}).then((res) => {
+		ajax({url: "http://localhost:4000/news", data: 'id=1'}).then((res) => {
+			console.log(res);
+		});
+		ajax({url: "http://localhost:4000/news", data: 'views.length=2'}).then((res) => {
+			console.log(res);
+		});
+		ajax({url: "http://localhost:4000/news", data: '_start=0&_limit=5'}).then((res) => {
+			console.log(res);
+		});
+		ajax({url: "http://localhost:4000/news", data: '_start=0&_limit=5&_sort=id&_order=DESC'}).then((res) => {
+			console.log(res);
+		});
+		ajax({url: "http://localhost:4000/news", data: 'title_like=人'}).then((res) => {
 			console.log(res);
 		});
 	}, false);
