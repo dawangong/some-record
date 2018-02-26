@@ -17,7 +17,10 @@
 		ajax({url: "http://localhost:4000/news", data: 'views.length=2'}).then((res) => {
 			console.log(res);
 		});
-		ajax({url: "http://localhost:4000/news", data: '_start=0&_limit=5'}).then((res) => {
+		ajax({url: "http://localhost:4000/news", data:{
+				_start: 0,
+				_limit: 5
+            }}).then((res) => {
 			console.log(res);
 		});
 		ajax({url: "http://localhost:4000/news", data: '_start=0&_limit=5&_sort=id&_order=DESC'}).then((res) => {

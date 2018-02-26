@@ -1,8 +1,10 @@
 let ajax = (function (window) {
 	function uri(obj){
 		let arr=[];
-		for(let i in obj){
-			arr.push(encodeURIComponent(i)+'='+encodeURIComponent(obj[i]));
+		if (obj && typeof obj === 'object') {
+			for(let i in obj){
+				arr.push(encodeURIComponent(i)+'='+encodeURIComponent(obj[i]));
+			}
 		}
 		return arr.join('&');
 	}
