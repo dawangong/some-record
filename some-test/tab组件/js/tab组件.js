@@ -2,14 +2,14 @@ let Tab = (function (window) {
 	function Tab(configuration) {
 		this.configuration = configuration;
 		this._configuration = {
-			tabWidth: 40,
-			tabHeight: 20,
+			tabPadding: '5px 20px',
 			tabBgColor: ['#00ffd3fa', '#00ffd3fa', '#00ffd3fa'],
 			left: 0,
 			top: 0,
-			boxWidth: 200,
-			boxHeight: 200,
-			event: 'click'
+			boxWidth: 400,
+			boxHeight: 400,
+			event: 'click',
+			contain:'tab-contain'
 		};
 		this.init();
 	}
@@ -29,14 +29,18 @@ let Tab = (function (window) {
 			left: this._configuration.left + 'px',
 			top: this._configuration.top + 'px'
 		});
-		this.css(this.oul, {border: '1px solid black', display: 'flex'});
+		this.css(this.oul, {display: 'flex'});
 		this.item.forEach((v, i) => {
 			this.css(v, {
 				listStyle: 'none',
 				background: this._configuration.tabBgColor[i],
 				boxSizing: 'border-box',
-				borderLeft: '1px solid black',
-				cursor: 'pointer'
+				cursor: 'pointer',
+				padding:this._configuration.tabPadding,
+				color:'white',
+				marginLeft:'5px',
+                border: '1px solid black',
+				borderBottom:0
 			});
 			this.css(this.box[i], {
 				position: 'absolute',
@@ -47,7 +51,7 @@ let Tab = (function (window) {
 			});
 		});
 		this.css(this.box[0], {display: 'block'});
-		this.css(this.item[0], {borderLeft: 0})
+		this.css(this.item[0], {borderLeft: 0,background: '#2196F3',marginLeft:0})
 	};
 
 	Tab.prototype.addEvent = function () {
@@ -65,14 +69,10 @@ let Tab = (function (window) {
 	};
 
 	Tab.prototype.prepareElement = function () {
-		this.contain = this.getClassName('tab-contain')[0];
-		this.oul = this.getClassName('tab-contain.ul')[0];
-		this.item = [...this.getClassName('tab-contain.item')];
-		this.box = [...this.getClassName('tab-contain.box')];
-	};
-
-	Tab.prototype.getClassName = function (name) {
-		return document.getElementsByClassName(name);
+		this.contain = document.getElementsByClassName(this._configuration.contain)[0];
+		this.oul = this.contain.getElementsByClassName('tab-contain.ul')[0];
+		this.item = [...this.oul.getElementsByClassName('tab-contain.item')];
+		this.box = [...this.contain.getElementsByClassName('tab-contain.box')];
 	};
 
 	Tab.prototype.css = function (obj, option) {
