@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce902be6-382c-4372-a8b0-4363e03ca4b9" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game/index.html" afterPath="$PROJECT_DIR$/game/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game/main.js" afterPath="$PROJECT_DIR$/game/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/some-test/tab组件/js/tab组件.js" afterPath="$PROJECT_DIR$/some-test/tab组件/js/tab组件.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/some-test/tab组件/js/tab组件.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/some-test/tab组件/template.html" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,28 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="template.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/some-test/tab组件/template.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tab组件.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/some-test/tab组件/js/tab组件.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="70" column="18" lean-forward="false" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -160,24 +137,6 @@
               <item name="some-record" type="b2602c69:ProjectViewProjectNode" />
               <item name="some-record" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="some-record" type="b2602c69:ProjectViewProjectNode" />
-              <item name="some-record" type="462c0819:PsiDirectoryNode" />
-              <item name="some-test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="some-record" type="b2602c69:ProjectViewProjectNode" />
-              <item name="some-record" type="462c0819:PsiDirectoryNode" />
-              <item name="some-test" type="462c0819:PsiDirectoryNode" />
-              <item name="tab组件" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="some-record" type="b2602c69:ProjectViewProjectNode" />
-              <item name="some-record" type="462c0819:PsiDirectoryNode" />
-              <item name="some-test" type="462c0819:PsiDirectoryNode" />
-              <item name="tab组件" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -189,7 +148,7 @@
     <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Component-development" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="nodejs_interpreter_path" value="node" />
@@ -277,7 +236,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51514000" />
+    <option name="totallyTimeSpent" value="52570000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -290,9 +249,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18229167" sideWeight="0.48992577" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18229167" sideWeight="0.48992577" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49789253" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5021075" order="11" side_tool="true" content_ui="tabs" />
@@ -701,7 +659,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/some-test/tab组件/js/tab组件.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
+        <state relative-caret-position="2520">
           <caret line="70" column="18" lean-forward="false" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
           <folding />
         </state>
