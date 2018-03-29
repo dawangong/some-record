@@ -20,30 +20,75 @@
 // console.log(arr_);
 //
 
-describe("Scope", function() {
+// describe("Scope", function() {
 
-    it("can be constructed and used as an object", function() {
-        var scope = new Scope();
-        scope.aProperty = 1;
-        expect(scope.aProperty).toBe(1);
-    });
+//     it("can be constructed and used as an object", function() {
+//         var scope = new Scope();
+//         scope.aProperty = 1;
+//         expect(scope.aProperty).toBe(1);
+//     });
 
-    describe("digest", function() {
-        var scope;
-        beforeEach(function() {
-            scope = new Scope();
-        });
-        it("calls the listener function of a watch on first $digest", function() {
-            var watchFn = function() { return 'wat'; };
-            var listenerFn = jasmine.createSpy();
-            console.log(listenerFn);
-            scope.$watch(watchFn, listenerFn);
+//     describe("digest", function() {
+//         var scope;
+//         beforeEach(function() {
+//             scope = new Scope();
+//         });
+//         it("calls the listener function of a watch on first $digest", function() {
+//             var watchFn = function() { return 'wat'; };
+//             var listenerFn = jasmine.createSpy();
+//             console.log(listenerFn);
+//             scope.$watch(watchFn, listenerFn);
 
-            scope.$digest();
+//             scope.$digest();
 
-            expect(listenerFn).toHaveBeenCalled();
-        });
-    });
+//             expect(listenerFn).toHaveBeenCalled();
+//         });
+//     });
+// });
+// 
+let arr = [1,2,3,4,5];
+let sum = arr.reduce((s,v,i,arr) => {
+	return s+v;
 });
+
+console.log(arr);
+
+let tree = [
+{
+	name: 'child0',
+	children: [{
+		name: 'child00'
+	}, {
+		name: 'child01'
+	}, ],
+}, 
+{
+	name: 'child1',
+	children: [{
+		name: 'child10'
+	}, ],
+}, {
+	name: 'child2',
+	children: [{
+		name: 'child20',
+		children: [{
+			name: 'child200'
+		}, {
+			name: 'child201'
+		}, ],
+	}, ],
+}, ];
+
+
+function get (tree) {
+tree.forEach( v => {
+	console.log(v.name);
+	if(v.children){
+		arguments.callee(v.children);
+	}
+});
+}
+
+get(tree);
 
 
