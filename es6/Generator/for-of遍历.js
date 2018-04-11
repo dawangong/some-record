@@ -8,6 +8,7 @@ function* foo() {
 }
 
 let fo = foo();
+console.log(fo);
 
 for (let v of fo) {
 	console.log(v);
