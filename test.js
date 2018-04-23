@@ -91,4 +91,28 @@ tree.forEach( v => {
 
 get(tree);
 
+// var x = 1;
+// function add(a) {
+// 	if(a>2){
+// 		return 'yes'
+// 	} else {
+//         return 'no'
+// 	}
+// }
+//
+// var y = add(x);
+// console.log(y);
+
+// let arrs = [
+// 	{key: 'one', value: '1'},
+// 	{key: 'two', value: '2'},
+// 	{key: 'thr', value: '3'}
+// ];
+
+
+// arrs.map(v => {
+// 	v.value = 'you';
+// });
+//
+// console.log(arrs);
 
