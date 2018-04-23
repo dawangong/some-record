@@ -46,50 +46,50 @@
 //     });
 // });
 // 
-let arr = [1,2,3,4,5];
-let sum = arr.reduce((s,v,i,arr) => {
-	return s+v;
-});
-
-console.log(arr);
-
-let tree = [
-{
-	name: 'child0',
-	children: [{
-		name: 'child00'
-	}, {
-		name: 'child01'
-	}, ],
-}, 
-{
-	name: 'child1',
-	children: [{
-		name: 'child10'
-	}, ],
-}, {
-	name: 'child2',
-	children: [{
-		name: 'child20',
-		children: [{
-			name: 'child200'
-		}, {
-			name: 'child201'
-		}, ],
-	}, ],
-}, ];
-
-
-function get (tree) {
-tree.forEach( v => {
-	console.log(v.name);
-	if(v.children){
-		arguments.callee(v.children);
-	}
-});
-}
-
-get(tree);
+// let arr = [1,2,3,4,5];
+// let sum = arr.reduce((s,v,i,arr) => {
+// 	return s+v;
+// });
+//
+// console.log(arr);
+//
+// let tree = [
+// {
+// 	name: 'child0',
+// 	children: [{
+// 		name: 'child00'
+// 	}, {
+// 		name: 'child01'
+// 	}, ],
+// },
+// {
+// 	name: 'child1',
+// 	children: [{
+// 		name: 'child10'
+// 	}, ],
+// }, {
+// 	name: 'child2',
+// 	children: [{
+// 		name: 'child20',
+// 		children: [{
+// 			name: 'child200'
+// 		}, {
+// 			name: 'child201'
+// 		}, ],
+// 	}, ],
+// }, ];
+//
+//
+// function get (tree) {
+// tree.forEach( v => {
+// 	console.log(v.name);
+// 	if(v.children){
+// 		arguments.callee(v.children);
+// 	}
+// });
+// }
+//
+// get(tree);
 
 // var x = 1;
 // function add(a) {
@@ -116,3 +116,6 @@ get(tree);
 //
 // console.log(arrs);
 
+let str = 'dasdasf';
+let tpstr = [...str];
+console.log(tpstr);
