@@ -120,19 +120,28 @@ let str = 'dasdasf';
 let tpstr = [...str];
 console.log(tpstr);
 
-let js = {
-    a: 1,
-    b: 2,
-    c: 3
-};
-
-console.log(Object.entries(js));
-
-for (let [key, value] of Object.entries(js)) {
-    console.log(`${key}:${value}`);
-}
+// let js = {
+//     a: 1,
+//     b: 2,
+//     c: 3
+// };
+//
+// console.log(Object.entries(js));
+//
+// for (let [key, value] of Object.entries(js)) {
+//     console.log(`${key}:${value}`);
+// }
 
 // var student=[1,2,3];
 // let ttp = Object.assign(student);
 // ttp = [3,4,5];
 // console.log(ttp, student);
+// const DangerButton = ({ text }) => {
+//     return {
+//         type:Button,
+//         props: {
+//             color: 'red',
+//             children: text
+//         }
+//     }
+// };
