@@ -6,17 +6,20 @@
     <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
 </head>
 <body ng-app="myapp" ng-controller="ctrl">
-<input type="file" class="file">
-<button ng-click="load()">上传</button>
+<input type="file" class="file" onchange="angular.element(this).scope().load(this.files)">
+<!--<input type="file" class="file" onchange="load(this.files)">-->
+
+<!--<button ng-click="load()">上传</button>-->
 <script>
     let reader = new FileReader();
-    let file = document.getElementsByClassName('file')[0];
+    // let file = document.getElementsByClassName('file')[0];
     let app = angular.module('myapp',[]);
     app.controller('ctrl',ctrl);
     ctrl.inject= ['$scope'];
     function ctrl($scope) {
-        $scope.load = function () {
-            let fileRes = file.files[0];
+        $scope.load = function (file) {
+            console.log(file);
+            let fileRes = file[0];
             reader.readAsText(fileRes); //读文件
             // reader.readAsDataURL(fileRes); //图片预览
             reader.onload = function(oFREvent){//读取完毕从中取值
