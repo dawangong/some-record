@@ -5,67 +5,67 @@
     <title>Document</title>
 </head>
 <body>
-<!--<script src='test.js'></script>-->
+<script src='test.js'></script>
 <script>
-	var getNeedStr = (function (window) {
-		var index = 1;
-		//计算字符占位(中文为2英文为1)
-		function judgeLen(str) {
-			var strLen = 0;
-			for (let i = 0; i < str.length; i += 1) {
-				if (str.charCodeAt(i) > 255) {
-					strLen += 2;
-				} else {
-					strLen += 1;
-				}
-			}
-			return strLen;
-		}
-		/**
-		 * 主函数
-		 * @param baseStr  基础字符串
-		 * @param number   需要的占位长度(默认英文占位数值)
-		 * @param jointStr 待拼接字符
-		 * @returns {str}  返回字符串
-		 */
-		return function (baseStr, number, jointStr) {
-			var jointStrLen = judgeLen(jointStr);
-			var strLen = judgeLen(baseStr);
-			if (strLen > number) {
-				baseStr = baseStr.replace(jointStr, '');
-				baseStr = baseStr.slice(0, baseStr.length - 1) + jointStr;
-				if (index === 1) {
-					number += jointStrLen;
-				}
-				index += 1;
-				return arguments.callee(baseStr, number, jointStr);
-			} else {
-				return baseStr;
-			}
-		};
-	})(window);
-
-	let str = getNeedStr('阿萨德吉林省会计等凉快圣诞节了萨克打架了快速点击拉开', 30, '...');
-	console.log(str);
-
-	let get = (function (window) {
-		function Get() {
-			this.x = 'speak';
-		}
-		Get.prototype.speak = function () {
-			console.log(this.x);
-		};
-		Get.prototype.walk = function () {
-			console.log('walk');
-		};
-		Get.prototype.sleep = function () {
-			console.log('sleep');
-		};
-		return Get;
-	})(window);
-
-	let gs =new get();
-	gs.speak();
+	// var getNeedStr = (function (window) {
+	// 	var index = 1;
+	// 	//计算字符占位(中文为2英文为1)
+	// 	function judgeLen(str) {
+	// 		var strLen = 0;
+	// 		for (let i = 0; i < str.length; i += 1) {
+	// 			if (str.charCodeAt(i) > 255) {
+	// 				strLen += 2;
+	// 			} else {
+	// 				strLen += 1;
+	// 			}
+	// 		}
+	// 		return strLen;
+	// 	}
+	// 	/**
+	// 	 * 主函数
+	// 	 * @param baseStr  基础字符串
+	// 	 * @param number   需要的占位长度(默认英文占位数值)
+	// 	 * @param jointStr 待拼接字符
+	// 	 * @returns {str}  返回字符串
+	// 	 */
+	// 	return function (baseStr, number, jointStr) {
+	// 		var jointStrLen = judgeLen(jointStr);
+	// 		var strLen = judgeLen(baseStr);
+	// 		if (strLen > number) {
+	// 			baseStr = baseStr.replace(jointStr, '');
+	// 			baseStr = baseStr.slice(0, baseStr.length - 1) + jointStr;
+	// 			if (index === 1) {
+	// 				number += jointStrLen;
+	// 			}
+	// 			index += 1;
+	// 			return arguments.callee(baseStr, number, jointStr);
+	// 		} else {
+	// 			return baseStr;
+	// 		}
+	// 	};
+	// })(window);
+    //
+	// let str = getNeedStr('阿萨德吉林省会计等凉快圣诞节了萨克打架了快速点击拉开', 30, '...');
+	// console.log(str);
+    //
+	// let get = (function (window) {
+	// 	function Get() {
+	// 		this.x = 'speak';
+	// 	}
+	// 	Get.prototype.speak = function () {
+	// 		console.log(this.x);
+	// 	};
+	// 	Get.prototype.walk = function () {
+	// 		console.log('walk');
+	// 	};
+	// 	Get.prototype.sleep = function () {
+	// 		console.log('sleep');
+	// 	};
+	// 	return Get;
+	// })(window);
+    //
+	// let gs =new get();
+	// gs.speak();
 </script>
 </body>
 </html>

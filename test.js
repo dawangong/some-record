@@ -145,3 +145,9 @@ console.log(tpstr);
 //         }
 //     }
 // };
+
+
+let pattern = /(console\.(log|warn|error|info)\(|\))/g;
+let strs = 'console.warn(我都哦额)';
+let res = strs.replace(pattern,'');
+console.log(res);
