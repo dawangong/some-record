@@ -153,3 +153,19 @@ let pattern = /(console\.(log|warn|error|info)\(|\))/g;
 let strs = 'console.warn(我都哦额)';
 let res = strs.replace(pattern,'');
 console.log(res);
+
+class test {
+    constructor() {
+        this.a = 'a';
+    }
+    get a () {
+        return 'b';
+    }
+    set a (param) {
+        console.log(param + '666');
+    }
+}
+
+let tt = new test();
+console.log(tt.a);
+tt.a = 33;
