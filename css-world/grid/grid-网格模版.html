@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .item-a {
+            grid-area: header;
+        }
+        .item-b {
+            grid-area: main;
+        }
+        .item-c {
+            grid-area: sidebar;
+        }
+        .item-d {
+            grid-area: footer;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 50px);
+            grid-template-rows: auto;
+            grid-template-areas:
+                    "header header header header"
+                    "main main . sidebar"
+                    "footer footer footer . ";
+            /*justify-items: center;*/
+        }
+    </style>
+</head>
+<body>
+
+<section class="container">
+    <div class="item-a">item-a</div>
+    <div class="item-b">item-b</div>
+    <div class="item-c">item-c</div>
+    <div class="item-d">item-d</div>
+</section>
+</body>
+</body>
+</html>

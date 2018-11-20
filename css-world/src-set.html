@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--响应式图片-->
+    <img
+            src="img/timg_400x250.jpeg"
+            srcset="img/timg_400x250.jpeg 400w,img/timg_800x500.jpeg 800w,img/timg_1600x1000.jpeg 1600w"
+            sizes="(max-width: 1200px) and (min-width: 1000px) 600px, (max-width: 999px) and (min-width: 600px) 400px, 200px"
+    >
+
+    <!--Media Conditions 不是确切的媒体查询-->
+    <!--not (orientation: landscape)-->
+    <!--(orientation: portrait) or (max-width: 500px)-->
+</body>
+</html>

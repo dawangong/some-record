@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: [a] 100px [b] 100px [c] 100px;
+            /*grid-template-columns: repeat(3, 100px);*/
+            grid-template-rows: repeat(3, 100px);
+            grid-row-gap: 5px;
+            grid-column-gap: 10px
+        }
+
+        .item1 {
+            grid-column-start: 1;
+            grid-column-end: 4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="item1">1</div>
+    <div class="item2">2</div>
+    <div class="item3">3</div>
+    <div class="item4">4</div>
+    <div class="item5">5</div>
+    <div class="item6">6</div>
+</div>
+</body>
+</html>
