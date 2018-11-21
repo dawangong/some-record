@@ -1,3 +1,5 @@
+import bind from './bind';
+
 // 无参数修饰类
 @f
 class Test {
@@ -70,3 +72,15 @@ function f3(str) {
 
 let R = new Person1();
 R.speak();
+
+// bind测试
+class Ok {
+    @bind
+    test() {
+        console.log(this);
+    }
+}
+
+let okk = new Ok();
+
+okk.test();

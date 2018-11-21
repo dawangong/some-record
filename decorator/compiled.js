@@ -2,7 +2,13 @@
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _class, _dec, _class2, _desc, _value, _class3, _dec2, _desc2, _value2, _class4;
+var _class, _dec, _class2, _desc, _value, _class3, _dec2, _desc2, _value2, _class4, _desc3, _value3, _class5;
+
+var _bind = require('./bind');
+
+var _bind2 = _interopRequireDefault(_bind);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
     var desc = {};
@@ -35,6 +41,7 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+// 无参数修饰类
 var Test = f(_class = function Test() {
     _classCallCheck(this, Test);
 }) || _class;
@@ -123,3 +130,24 @@ function f3(str) {
 
 var R = new Person1();
 R.speak();
+
+// bind测试
+var Ok = (_class5 = function () {
+    function Ok() {
+        _classCallCheck(this, Ok);
+    }
+
+    _createClass(Ok, [{
+        key: 'test',
+        value: function test() {
+            console.log(this);
+        }
+    }]);
+
+    return Ok;
+}(), (_applyDecoratedDescriptor(_class5.prototype, 'test', [_bind2.default], Object.getOwnPropertyDescriptor(_class5.prototype, 'test'), _class5.prototype)), _class5);
+
+
+var okk = new Ok();
+
+okk.test();
