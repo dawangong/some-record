@@ -101,8 +101,9 @@ var ll = new Person();
 
 ll.speak();
 
+var a = '22';
 // 带参数修饰方法
-var Person1 = (_dec2 = f3('???'), (_class4 = function () {
+var Person1 = (_dec2 = f3(a), (_class4 = function () {
     function Person1() {
         _classCallCheck(this, Person1);
     }

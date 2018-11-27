@@ -52,9 +52,11 @@ let ll = new Person();
 
 ll.speak();
 
+
+const a = '22';
 // 带参数修饰方法
 class Person1 {
-    @f3('???')
+    @f3(a)
     speak() {
         console.log(1);
     }
