@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="PROJECT" libraries="{@types/angular, @types/eslint, @types/express, @types/grunt, @types/gulp, @types/jasmine, @types/jquery, @types/karma, @types/less, @types/lodash, @types/mocha, @types/node, @types/npm, @types/react, @types/sass, @types/swiper, @types/typescript-deferred, @types/webpack, @types/zepto}" />
+    <includedPredefinedLibrary name="HTTP Response Handler" />
+    <includedPredefinedLibrary name="Node.js Core" />
+  </component>
+</project>

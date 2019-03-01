@@ -1,11 +1,8 @@
-describe('hello',function(){
-	it('test add',function(){
-		var a = add(3,6);
-		expect(a).toEqual(9);
-	});
+const add = require('../add');
+const assert = require('assert');
 
-	it('test add',function(){
-		var a = add(3,6);
-		expect(a).toEqual(10);
-	});
+describe('加法测试',function(){
+    it('1 加 1 应该等于 2', function() {
+        assert.equal(add(1, 1), 2)
+    });
 });

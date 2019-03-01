@@ -4,7 +4,27 @@
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
+<style>
+    table{
+        border-collapse: collapse;
+    }
+</style>
 <body>
+
+<table border="1">
+    <tr>
+        <th>Month</th>
+        <th>Savings</th>
+    </tr>
+
+    <tr>
+        <td>January</td>
+        <td>展开</td>
+    </tr>
+</table>
+
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.6.4/jquery.contextMenu.min.js"></script>
 <script src='test.js'></script>
 <script>
 	// var getNeedStr = (function (window) {
@@ -66,6 +86,14 @@
     //
 	// let gs =new get();
 	// gs.speak();
+    let n = 0;
+    $('td').click(function () {
+        n ++;
+        $(this).parent().parent().parent().children(':last-child').after(`<p>${n}</p>`);
+    });
 </script>
+
+<button class="with-cool-menu"></button>
+
 </body>
 </html>
