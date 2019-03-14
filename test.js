@@ -120,7 +120,8 @@
 
 let str = 'dasdasf';
 let tpstr = [...str];
-console.log(tpstr);
+let tsp = str.split('');
+console.log(tpstr, tsp);
 
 // let js = {
 //     a: 1,
@@ -149,38 +150,53 @@ console.log(tpstr);
 // };
 
 
-let pattern = /(console\.(log|warn|error|info)\(|\))/g;
-let strs = 'console.warn(我都哦额)';
-let res = strs.replace(pattern,'');
-console.log(res);
+// let pattern = /(console\.(log|warn|error|info)\(|\))/g;
+// let strs = 'console.warn(我都哦额)';
+// let res = strs.replace(pattern,'');
+// console.log(res);
+//
+// class test {
+//     constructor() {
+//         this.a = 'a';
+//     }
+//     get a () {
+//         return 'b';
+//     }
+//     set a (param) {
+//         console.log(param + '666');
+//     }
+// }
+//
+// let tt = new test();
+// console.log(tt.a);
+// tt.a = 33;
+//
+// let tree = {
+//     value: 0,
+//     children: []
+// };
 
-class test {
-    constructor() {
-        this.a = 'a';
-    }
-    get a () {
-        return 'b';
-    }
-    set a (param) {
-        console.log(param + '666');
-    }
-}
+// var recursiveTraverse = function (node, action) {
+//     if (!node || !node.children) { return false }
+//     action(node.value);
+//     node.children.forEach(function(item) {
+//         recursiveTraverse(item, action);
+//     });
+// }
+// // 递归实现
+// recursiveTraverse(tree, console.log);
 
-let tt = new test();
-console.log(tt.a);
-tt.a = 33;
+//map 实现
+Array.prototype._map = function (fn, arg, result = []) {
 
-let tree = {
-    value: 0,
-    children: []
+    for(let i = 0; i < this.length; i++) {
+        result.push(fn.apply(arg, [this[i], i, this]));
+    }
+
+    return result;
 };
 
-var recursiveTraverse = function (node, action) {
-    if (!node || !node.children) { return false }
-    action(node.value);
-    node.children.forEach(function(item) {
-        recursiveTraverse(item, action);
-    });
-}
-// 递归实现
-recursiveTraverse(tree, console.log);
+const res = [1, 2, 3]._map(item => item * 2);
+
+console.log(res);
+
