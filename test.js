@@ -170,13 +170,17 @@ let tt = new test();
 console.log(tt.a);
 tt.a = 33;
 
-$.contextMenu({
-    // define which elements trigger this menu
-    selector: ".with-cool-menu",
-    // define the elements of the menu
-    items: {
-        foo: {name: "Foo", callback: function(key, opt){ alert("Foo!"); }},
-        bar: {name: "Bar", callback: function(key, opt){ alert("Bar!") }}
-    }
-    // there's more, have a look at the demos and docs...
-});
+let tree = {
+    value: 0,
+    children: []
+};
+
+var recursiveTraverse = function (node, action) {
+    if (!node || !node.children) { return false }
+    action(node.value);
+    node.children.forEach(function(item) {
+        recursiveTraverse(item, action);
+    });
+}
+// 递归实现
+recursiveTraverse(tree, console.log);
