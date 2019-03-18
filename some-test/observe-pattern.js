@@ -39,3 +39,5 @@ var pubshop = new Publish();
 pubshop.subscribe(wh);
 
 pubshop.notify(wh, '我发的消息');
+
+//todo 再看看 很多框架的基础思想 感觉都是基于发布订阅模式 2019-03-18留
