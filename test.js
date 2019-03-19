@@ -200,3 +200,5 @@ const res = [1, 2, 3]._map(item => item * 2);
 
 console.log(res);
 
+console.log([].push(...[1, 2, 3]));
+
