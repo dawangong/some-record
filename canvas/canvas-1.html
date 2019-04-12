@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="400" height="400"> Your browser does not support HTML5 Canvas.</canvas>
+<script>
+    function canvasSupport(e) {
+        return !!e.getContext;
+    }
+
+    function canvasAPP() {
+        var myCanvas = document.getElementById('myCanvas');
+        if (!canvasSupport(myCanvas)) {
+            return;
+        }
+
+        var ctx = myCanvas.getContext('2d');
+    }
+
+</script>
+</body>
+</html>

@@ -4,7 +4,10 @@ const set = (key, value) => {
     map[key] = value;
 };
 
-export default {
+const map = {
     get,
     set
 };
+
+map.set('key', 'v');
+console.log(map.get('key'));
