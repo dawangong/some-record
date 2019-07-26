@@ -1,0 +1,3 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/inspectionProfiles/
+webpack-test/node_modules/.cache/terser-webpack-plugin/tmp/
