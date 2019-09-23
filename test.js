@@ -207,17 +207,17 @@ console.log(tpstr, tsp);
 // 监听属性变化类
 class Observer {
 
-  // 事件派发
+  // 事件触发
   static emit(ev) {
     document.dispatchEvent(ev);
   }
 
   constructor() {
-    // 变化相关信息
+    // 相关信息存储
     this.info = {};
   }
 
-  // 监听对象
+  // 返回监听的对象
   watch(obj) {
     return this.addProxy(obj);
   }
@@ -252,6 +252,7 @@ class Observer {
           prop
         };
         target[prop] = val;
+        // 根据值是否变化选择触发的事件
         if(oldVal !== val) {
           Observer.emit(new Event('change'))
         } else {
@@ -261,6 +262,7 @@ class Observer {
       }
     };
     for (let prop in obj) {
+      // 过掉原型链上的内部属性
       if(obj.hasOwnProperty(prop) && typeof obj[prop] === 'object' && obj[prop] !== null) {
         obj[prop] = this.watch(obj[prop]);
       }
@@ -270,10 +272,14 @@ class Observer {
 }
 
 const a = { b: {c: 3}};
+// 初始化一个观察类
 const observer = new Observer();
+// 调用其watch方法监听并返回一个proxy包装后的对象
 const obj = observer.watch(a);
-
+// 通过实例对象的on方法监听属性的变化
 observer.on('change', info => {
   console.log(info);
+  // 从中可以得到读取或更改的属性及其新值、旧值.
 });
+// 手动更改属性值
 obj.b.c = 100;
