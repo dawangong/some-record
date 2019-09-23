@@ -47,7 +47,7 @@
 //         });
 //     });
 // });
-// 
+//
 // let arr = [1,2,3,4,5];
 // let sum = arr.reduce((s,v,i,arr) => {
 // 	return s+v;
@@ -187,18 +187,93 @@ console.log(tpstr, tsp);
 // recursiveTraverse(tree, console.log);
 
 //map 实现
-Array.prototype._map = function (fn, arg, result = []) {
+// Array.prototype._map = function (fn, arg, result = []) {
+//
+//     for(let i = 0; i < this.length; i++) {
+//         result.push(fn.apply(arg, [this[i], i, this]));
+//     }
+//
+//     return result;
+// };
+//
+// const res = [1, 2, 3]._map(item => item * 2);
+//
+// console.log(res);
+//
+// console.log([].push(...[1, 2, 3]));
 
-    for(let i = 0; i < this.length; i++) {
-        result.push(fn.apply(arg, [this[i], i, this]));
+
+
+// 监听属性变化类
+class Observer {
+
+  // 事件派发
+  static emit(ev) {
+    document.dispatchEvent(ev);
+  }
+
+  constructor() {
+    // 变化相关信息
+    this.info = {};
+  }
+
+  // 监听对象
+  watch(obj) {
+    return this.addProxy(obj);
+  }
+
+  // 事件监听器
+  on(evStr, callback) {
+    document.addEventListener(evStr, () => {
+      callback(this.info);
+    });
+  }
+
+  // proxy包装对象
+  addProxy(obj) {
+    const that = this;
+    const handle = {
+      get(target, prop) {
+        const val = target[prop];
+        const oldVal = target[prop];
+        that.info = {
+          val,
+          oldVal,
+          prop
+        };
+        Observer.emit(new Event('read'));
+        return val;
+      },
+      set(target, prop, val) {
+        const oldVal = target[prop];
+        that.info = {
+          val,
+          oldVal,
+          prop
+        };
+        target[prop] = val;
+        if(oldVal !== val) {
+          Observer.emit(new Event('change'))
+        } else {
+          Observer.emit(new Event('update'));
+        }
+        return true;
+      }
+    };
+    for (let prop in obj) {
+      if(obj.hasOwnProperty(prop) && typeof obj[prop] === 'object' && obj[prop] !== null) {
+        obj[prop] = this.watch(obj[prop]);
+      }
     }
+    return new Proxy(obj, handle);
+  }
+}
 
-    return result;
-};
+const a = { b: {c: 3}};
+const observer = new Observer();
+const obj = observer.watch(a);
 
-const res = [1, 2, 3]._map(item => item * 2);
-
-console.log(res);
-
-console.log([].push(...[1, 2, 3]));
-
+observer.on('change', info => {
+  console.log(info);
+});
+obj.b.c = 100;
