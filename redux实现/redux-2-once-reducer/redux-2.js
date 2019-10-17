@@ -1,13 +1,18 @@
 const state = {
-  number: 3
+  number: {
+    count: 1
+  },
+  color: {
+    color: "red"
+  }
 };
 
 const createStore = (initState, reducer) => {
   let state =  initState;
   const listeners= [];
 
+  // 发布订阅模式
   const subscribe = listener => listeners.push(listener);
-
   const dispatch = action => {
     state = reducer(initState, action.type);
     listeners.forEach(listener => listener());
@@ -25,15 +30,21 @@ const createStore = (initState, reducer) => {
 };
 
 // 行为规范
-const reducer = (state, action) => {
+const numberReducer = (state, action) => {
   switch (action) {
-    case "one": state.number = 1;break;
-    case "two": state.number = 2;break;
+    case "add": state.number.count += 1;break;
+    case "reduce": state.number.count -= 1;break;
     default: console.log("return old");
   }
   return state;
 };
-const store = createStore(state, reducer);
+// 只能接收一个reducer的问题
+const colorReducer = (state, action) => {
+  state.color.color = action;
+  return state;
+};
+
+const store = createStore(state, numberReducer);
 
 // 订阅
 store.subscribe(() => {
@@ -41,6 +52,9 @@ store.subscribe(() => {
 });
 
 // 触发
-store.dispatch({type: "one"});
-store.dispatch({type: "two"});
+store.dispatch({type: "reduce"});
+store.dispatch({type: "add"});
+store.dispatch({type: "add"});
+store.dispatch({type: "blue"});
+
 

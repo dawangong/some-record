@@ -201,3 +201,20 @@ console.log(tpstr, tsp);
 // console.log(res);
 //
 // console.log([].push(...[1, 2, 3]));
+
+
+const getObj = (obj, _key, oldKey = "") => {
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      if (key === _key) {
+        console.log(`${oldKey}.${_key}`);
+      } else {
+        if (typeof obj[key] === "object" && obj[key]!== null && key !== _key) {
+          getObj(obj[key], _key, `${oldKey}.${key}`);
+        }
+      }
+    }
+  }
+};
+
+getObj({ b: { a: 3 } }, "a");

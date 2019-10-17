@@ -11,8 +11,8 @@ const createStore = (initState, reducer) => {
   let state =  initState;
   const listeners= [];
 
+  // 发布订阅模式
   const subscribe = listener => listeners.push(listener);
-
   const dispatch = action => {
     state = reducer(initState, action.type);
     listeners.forEach(listener => listener());
