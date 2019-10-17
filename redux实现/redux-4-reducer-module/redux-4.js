@@ -40,6 +40,12 @@ const combineReducers = reducers => {
         resultState = {...resultState, ...nextState};
       }
     }
+    if (JSON.stringify(resultState) === "{}") {
+      for(let key in reducers) {
+        const reducer = reducers[key];
+        resultState = {...resultState, ...reducer({ type: Symbol() })}
+      }
+    }
     return resultState;
   };
 };
