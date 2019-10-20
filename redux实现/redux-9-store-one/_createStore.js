@@ -1,7 +1,7 @@
 const createStore = require("./createStore").createStore;
 
 // 和源码实现不同 主要学思想
-const createNewStore = (reducer, ...middleware) => {
+const _createStore = (reducer, ...middleware) => {
   const exceptionMiddleware = (...middleware) => getState => dispatch => action => {
     try {
       middleware.forEach(_middleware => {
@@ -24,5 +24,5 @@ const createNewStore = (reducer, ...middleware) => {
 };
 
 module.exports = {
-  createNewStore
+  _createStore
 };
