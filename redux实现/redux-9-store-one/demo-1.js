@@ -7,7 +7,7 @@ const { createStore, combineReducers } = require("./redux-9");
 const store = createStore(combineReducers({
   number: numberReducer,
   color: colorReducer
-}), logMiddleware, timeMiddleware);
+}), timeMiddleware, logMiddleware);
 
 // 订阅
 store.subscribe(() => {
