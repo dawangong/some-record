@@ -45,12 +45,9 @@ const colorReducer = (state, action) => {
 
 // 合并reducer
 const combineReducers = (reducers) => {
+  let resultState = {};
   return (state, action) => {
-    let resultState = {};
     for(let key in reducers) {
-      if (JSON.stringify(resultState) !== "{}") {
-        state = resultState;
-      }
       const reducer = reducers[key];
       resultState = reducer(state, action);
     }
