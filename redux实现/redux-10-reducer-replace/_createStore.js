@@ -1,11 +1,11 @@
-const createStore = require("./createStore").createStore;
+const { createStore } = require("./createStore");
 
 // 和源码实现不同 主要学思想
 const _createStore = (reducer, ...middleware) => {
-  const exceptionMiddleware = (...middleware) => getState => dispatch => action => {
+  const exceptionMiddleware = (...middleware) => (getState, dispatch) => action => {
     try {
       middleware.forEach(_middleware => {
-        _middleware(getState)(action);
+        _middleware(getState, action);
       });
 
       dispatch(action);
@@ -18,7 +18,7 @@ const _createStore = (reducer, ...middleware) => {
   const _dispatch = _store.dispatch;
   // 中间件更改
   if (middleware) {
-    _store.dispatch = exceptionMiddleware(...middleware)(getState)(_dispatch);
+    _store.dispatch = exceptionMiddleware(...middleware)(getState, _dispatch);
   }
   return _store;
 };

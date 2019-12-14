@@ -1,9 +1,9 @@
-const logMiddleware = store => action => {
+const logMiddleware = (store, action) => {
   console.log('action', action);
   console.log('last state', store.getState());
 };
 
-const timeMiddleware  = store => action => {
+const timeMiddleware  = (store, action) => {
   console.log('time', Date.now());
   console.log('last state', store.getState());
 };

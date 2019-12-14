@@ -1,5 +1,5 @@
-const numberReducer = require("./numberReducer").numberReducer;
-const colorReducer = require("./colorReducer").colorReducer;
+const { numberReducer } = require("./numberReducer");
+const { colorReducer } = require("./colorReducer");
 
 const createStore = reducer => {
   let state =  {};
@@ -37,7 +37,7 @@ const combineReducers = reducers => {
       const nextState = reducer(action);
 
       if (JSON.stringify(lastState) !== JSON.stringify(nextState)) {
-        resultState = {...resultState, ...nextState};
+        resultState = nextState;
       }
     }
     if (JSON.stringify(resultState) === "{}") {

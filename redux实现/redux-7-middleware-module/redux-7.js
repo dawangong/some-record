@@ -1,8 +1,6 @@
-const numberReducer = require("./numberReducer").numberReducer;
-const colorReducer = require("./colorReducer").colorReducer;
-const exceptionMiddleware = require("./middleware").exceptionMiddleware;
-const logMiddleware = require("./middleware").logMiddleware;
-const timeMiddleware = require("./middleware").timeMiddleware;
+const { numberReducer } = require("./numberReducer");
+const { colorReducer } = require("./colorReducer");
+const { timeMiddleware, logMiddleware, exceptionMiddleware } = require("./middleware");
 
 const createStore = reducer => {
   let state =  {};
@@ -39,7 +37,7 @@ const combineReducers = reducers => {
       const nextState = reducer(action);
 
       if (JSON.stringify(lastState) !== JSON.stringify(nextState)) {
-        resultState = {...resultState, ...nextState};
+        resultState = nextState;
       }
     }
     if (JSON.stringify(resultState) === "{}") {
@@ -58,7 +56,7 @@ const store = createStore(combineReducers({
 }));
 const _dispatch = store.dispatch;
 // 中间件更改
-store.dispatch = exceptionMiddleware(logMiddleware, timeMiddleware)(store)(_dispatch);
+store.dispatch = exceptionMiddleware(logMiddleware, timeMiddleware)(store, _dispatch);
 
 // 订阅
 store.subscribe(() => {

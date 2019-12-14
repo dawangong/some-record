@@ -1,5 +1,5 @@
-const combineReducers = require("./combineReducers").combineReducers;
-const createStore = require("./_createStore")._createStore;
+const { combineReducers } = require("./combineReducers");
+const { _createStore: createStore } = require("./_createStore");
 
 module.exports = {
   createStore,

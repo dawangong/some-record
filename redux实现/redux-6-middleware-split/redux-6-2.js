@@ -1,5 +1,5 @@
-const numberReducer = require("./numberReducer").numberReducer;
-const colorReducer = require("./colorReducer").colorReducer;
+const { numberReducer } = require("./numberReducer");
+const { colorReducer } = require("./colorReducer");
 
 const createStore = reducer => {
   let state =  {};
@@ -36,7 +36,7 @@ const combineReducers = reducers => {
       const nextState = reducer(action);
 
       if (JSON.stringify(lastState) !== JSON.stringify(nextState)) {
-        resultState = {...resultState, ...nextState};
+        resultState = nextState;
       }
     }
     if (JSON.stringify(resultState) === "{}") {
@@ -56,20 +56,22 @@ const store = createStore(combineReducers({
 
 const _dispatch = store.dispatch;
 // dispatch动态
-const logMiddleware = dispatch => action => {
+const logMiddleware = action => {
   console.log('action', action);
-  dispatch(action);
 };
 // 中间件动态
-const exceptionMiddleware = middleware => action => {
+const exceptionMiddleware = (...middleware) => dispatch => action => {
   try {
-    middleware(action);
+    middleware.forEach(_middleware => {
+      _middleware(action);
+    });
+    dispatch(action);
   } catch (err) {
     console.error('error: ', err)
   }
 };
 // dispatch只接收一个参数
-store.dispatch = exceptionMiddleware(logMiddleware(_dispatch));
+store.dispatch = exceptionMiddleware(logMiddleware)(_dispatch);
 
 // 订阅
 store.subscribe(() => {

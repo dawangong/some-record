@@ -9,7 +9,7 @@ const combineReducers = reducers => {
       const nextState = reducer(action);
 
       if (JSON.stringify(lastState) !== JSON.stringify(nextState)) {
-        resultState = {...resultState, ...nextState};
+        resultState = nextState;
       }
     }
     if (JSON.stringify(resultState) === "{}") {

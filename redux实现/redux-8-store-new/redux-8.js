@@ -1,8 +1,7 @@
-const numberReducer = require("./numberReducer").numberReducer;
-const colorReducer = require("./colorReducer").colorReducer;
-const logMiddleware = require("./middleware").logMiddleware;
-const timeMiddleware = require("./middleware").timeMiddleware;
-const createNewStore = require("./createNewStore").createNewStore;
+const { numberReducer } = require("./numberReducer");
+const { colorReducer } = require("./colorReducer");
+const { logMiddleware, timeMiddleware } = require("./middleware");
+const { createNewStore } = require("./createNewStore");
 
 const createStore = reducer => {
   let state =  {};
@@ -39,7 +38,7 @@ const combineReducers = reducers => {
       const nextState = reducer(action);
 
       if (JSON.stringify(lastState) !== JSON.stringify(nextState)) {
-        resultState = {...resultState, ...nextState};
+        resultState = nextState;
       }
     }
     if (JSON.stringify(resultState) === "{}") {
