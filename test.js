@@ -203,18 +203,29 @@ console.log(tpstr, tsp);
 // console.log([].push(...[1, 2, 3]));
 
 
-const getObj = (obj, _key, oldKey = "") => {
-  for (let key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      if (key === _key) {
-        console.log(`${oldKey}.${_key}`);
-      } else {
-        if (typeof obj[key] === "object" && obj[key]!== null && key !== _key) {
-          getObj(obj[key], _key, `${oldKey}.${key}`);
-        }
-      }
-    }
-  }
-};
+// const getObj = (obj, _key, oldKey = "") => {
+//   for (let key in obj) {
+//     if (obj.hasOwnProperty(key)) {
+//       if (key === _key) {
+//         console.log(`${oldKey}.${_key}`);
+//       } else {
+//         if (typeof obj[key] === "object" && obj[key] !== null && key !== _key) {
+//           getObj(obj[key], _key, `${oldKey}.${key}`);
+//         }
+//       }
+//     }
+//   }
+// };
+//
+// getObj({ b: { a: 3 } }, "a");
 
-getObj({ b: { a: 3 } }, "a");
+
+// const delProp = (obj = {}, props = []) => JSON.parse(JSON.stringify(obj, (key, value) => props.includes(key) ? undefined : value));
+//
+// const obj = { a: 3, b: 3 };
+// const _obj = delProp(obj, ['a']);
+//
+// console.log(_obj);
+
+
+// console.log(['113', 'adds', '2141'].join(',').match(/\d+/g));
