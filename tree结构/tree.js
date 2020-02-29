@@ -48,13 +48,52 @@ class Tree {
     let nodes = [];
     this.mapTree(this.data, data => {
       const element = this.create({
-        tagName: 'div',
-        text: data.name
+        tagName: 'p',
+        text: data.name,
+        className: 'tree-element'
       });
-      element.id = data.id;
-      const root = data.pid === -1 ? document.body : nodes.find(item => +item.getAttribute('id') === data.pid);
+      this.commonFn(element, data);
+      const root = data.pid === -1 ? document.body : this.otherNodeFn(nodes, element, data);
       this.append(element, root);
       nodes.push(element);
+    });
+  }
+
+  // 所有节点公共逻辑
+  commonFn(element, data) {
+    element.setAttribute('tid', data.id);
+    element.setAttribute('pid', data.pid);
+    element.setAttribute('open', false);
+    element.addEventListener('click', e => {
+      e.stopPropagation();
+      const open = element.getAttribute('open') === 'true';
+      element.setAttribute('open', !open);
+      this.toggle(element, !open);
+    }, false);
+    this.css(element, {
+      'cursor': 'pointer'
+    });
+  }
+
+  // 除去根结点
+  otherNodeFn(nodes, element, data) {
+    const parent = nodes.find(item => +item.getAttribute('tid') === data.pid);
+    this.css(element, {
+      'margin-left': '16px',
+      'margin-top': '5px',
+      'cursor': 'pointer',
+      'display': parent.getAttribute('open') === 'true' ? 'block' : 'none'
+    });
+    return parent;
+  }
+
+  // 展开或者收起
+  toggle(element, show) {
+    const child = [...element.querySelectorAll('.tree-element')].filter(item => item.getAttribute('pid') === element.getAttribute('tid'));
+    child.forEach(item => {
+      this.css(item, {
+        'display': show ? 'block' : 'none'
+      });
     });
   }
 
@@ -68,18 +107,19 @@ class Tree {
     const element = document.createElement(tagName);
     element.className = className;
     element.innerText = text;
+
     attrs.forEach(({
       key,
       value
     }) => {
       element.setAttribute(key, value);
     });
+
     return element;
   }
 
   // 插入元素
   append(target, el) {
-    console.log(target, el);
     return el.appendChild(target);
   }
 
@@ -90,6 +130,13 @@ class Tree {
     if (!tree.children) return false;
     tree.children.forEach(item => this.mapTree(item, action));
   }
+
+  // 修改style
+  css(obj, option) {
+        for (let i in option) {
+            obj.style[i] = option[i];
+        }
+    }
 }
 
 new Tree(treeData);
