@@ -220,7 +220,13 @@ var _template = require("./package/template");
 // 模拟数据
 var users = [{
   "name": "Kevin",
-  "url": "http://localhost"
+  "url": "http://www.baidu.com"
+}, {
+  "name": "Bob",
+  "url": "http://www.baidu.com"
+}, {
+  "name": "Dav",
+  "url": "http://www.baidu.com"
 }];
 var tpl = "<%for ( var i = 0; i < users.length; i++ ) { %>\n    <li>\n        <a href=\"<%=users[i].url%>\">\n            <%=users[i].name%>\n        </a>\n    </li>\n<% } %>";
 var compiled = (0, _template.template3)(tpl);
