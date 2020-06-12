@@ -229,8 +229,10 @@ var users = [{
   "url": "http://www.baidu.com"
 }];
 var tpl = "<%for ( var i = 0; i < users.length; i++ ) { %>\n    <li>\n        <a href=\"<%=users[i].url%>\">\n            <%=users[i].name%>\n        </a>\n    </li>\n<% } %>";
+var tpl2 = "<%=users[0].name%>";
 var compiled = (0, _template.template3)(tpl);
-document.querySelector('#result').innerHTML = compiled(users);
+var compiled2 = (0, _template.template3)(tpl2);
+document.querySelector('#result').innerHTML = compiled(users); // document.querySelector('#result').innerHTML = compiled2(users);
 },{"./package/template":"package/template.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

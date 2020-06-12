@@ -11,6 +11,10 @@ const tpl = `<%for ( var i = 0; i < users.length; i++ ) { %>
     </li>
 <% } %>`;
 
+const tpl2 = `<%=users[0].name%>`;
+
 const compiled = template3(tpl);
+const compiled2 = template3(tpl2);
 
 document.querySelector('#result').innerHTML = compiled(users);
+// document.querySelector('#result').innerHTML = compiled2(users);
