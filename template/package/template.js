@@ -1,3 +1,4 @@
+// jq作者思路 https://johnresig.com/blog/javascript-micro-templating/#postcomment
 // 将 %> 替换成 p.push('
 // 将 <% 替换成 ');
 // 将 <%=xxx%> 替换成 ');p.push(xxx);p.push('
@@ -61,6 +62,7 @@ const template3 = str => {
 };
 
 /**
+ * underscored
  * "var a = '1\n23';console.log(a)".toString() ?
  * 在 Function 构造函数的实现中，首先会将函数体代码字符串进行一次 ToString
  * 字符串表达式中是不允许换行的 !
@@ -92,6 +94,21 @@ function replacer(match, p1, p2, p3, offset, string) {
   return [p1, p2, p3].join(' - ');
 }
 const newString = 'abc12345#$*%'.replace(/([^\d]*)(\d*)([^\w]*)/, replacer); // abc - 12345 - #$*%
+
+// 每个正则表达式对象都有一个 source 属性，返回当前正则表达式对象的模式文本的字符串
+const regex = /fooBar/ig;
+console.log(regex.source); // "fooBar"，不包含 /.../ 和 "ig"。
+
+// <%=xxx%> /<%=(.+?)%>/g and underscore => /<%=([\s\S]+?)%>/g
+// .匹配除行终结符之外的任何单个字符
+
+const str = '<%=hello \u2029 world%>';
+
+str.replace(/<%=(.+?)%>/g, function(match){
+  console.log(match);
+});
+
+
 
 export {
   template1,
