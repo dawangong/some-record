@@ -16,7 +16,6 @@ const autoCompose = (...fn) => {
   }
 };
 
-
 const fn = autoCompose(add, double, reduce);
 
 const result = fn(1, 2); // 5
