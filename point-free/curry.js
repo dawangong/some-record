@@ -1,10 +1,10 @@
 // 自动柯里化
-const autoCurry = fn => {
+const curry = fn => {
   const check = (rest, argList) => rest === 0 ? fn(...argList) : arg => check(rest - 1, [...argList, arg]);
   return check(fn.length, []);
 };
 
-const add = autoCurry((a, b, c) => a + b + c);
+const add = curry((a, b, c) => a + b + c);
 
 const result = add(1)(2)(3);
 
