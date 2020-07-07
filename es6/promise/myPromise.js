@@ -2,27 +2,23 @@
  * promise 实现
  * fulfilled => resolved 替代
  */
-export default class myPromise {
+class myPromise {
 
   static isFunction(fn) {
     return typeof fn === 'function';
   }
 
   static insideError(judge, fn) {
-    if (!judge) {
-      return (value) => {}
-    }
-    return fn
+    return judge ? fn : value => {}
   }
 
   static isPromise(promise) {
-    const condition = [
+    return [
       typeof promise === 'object',
       promise !== null,
       promise.then,
       typeof promise.then === 'function'
-    ];
-    return condition.every(item => item)
+    ].every(item => item)
   }
 
   static next() {
@@ -94,3 +90,13 @@ export default class myPromise {
     return this.then(null, onRejected)
   }
 }
+
+const get = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve();
+  }, 3000);
+});
+
+get.then(() => {
+  console.log(1);
+});
