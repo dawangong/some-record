@@ -1,8 +1,9 @@
-const Observable = require('./observable');
-const { Pub, EventBus } = require('./sub&pub');
-const God = require('./single');
+const Observer = require('./observer');
+const { Pub, EventBus } = require('./subscribe&publish');
+// const God = require('./single');
+const God = require('./pure-single');
 /* 观察者模式 */
-// const ob = new Observable();
+// const ob = new Observer();
 // ob.$on('update', data => {
 //   console.log(data);
 // });
@@ -33,11 +34,21 @@ const God = require('./single');
 // Pub.$broadcast(ev2, '主题2再次更新了～');
 
 /* 单例模式 */
-const god = God.getInstance();
+// const god = God.getInstance();
+// god.create('小王');
+// console.log(god.human);
+
+// const _god = God.getInstance();
+// god.create('小刘');
+// console.log(god.human);
+
+
+/* 纯净的单例模式 */
+const god = new God();
 god.create('小王');
 console.log(god.human);
 
-const _god = God.getInstance();
+const _god = new God();
 god.create('小刘');
 console.log(god.human);
 

@@ -3,10 +3,6 @@
  * auth wh
  */
 class God {
-  constructor() {
-    this.instance = null;
-    this.human = [];
-  }
 
   static getInstance() {
     const { instance } = this;
@@ -14,6 +10,11 @@ class God {
     return this.instance;
   }
 
+  constructor() {
+    this.instance = null;
+    this.human = [];
+  }
+  
   create(item) {
     this.human.push(item);
   }

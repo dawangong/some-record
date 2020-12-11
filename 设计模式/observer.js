@@ -2,7 +2,7 @@
  * 观察者模式
  * auth wh
  */
-class Observable {
+class Observer {
   constructor () {
     this.events = {}
   }
@@ -39,4 +39,4 @@ class Observable {
   }
 }
 
-module.exports = Observable;
+module.exports = Observer;
