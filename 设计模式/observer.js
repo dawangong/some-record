@@ -1,5 +1,6 @@
 /**
  * 观察者模式
+ * 监听事件
  * auth wh
  */
 class Observer {
