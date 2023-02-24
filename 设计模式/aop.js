@@ -1,3 +1,7 @@
+/**
+ * aop编程 将业务之外的逻辑抽离 复用后从外部注入
+ * auth wh
+ */
 const fn1 = () => {
   console.log(2);
 };
