@@ -8,10 +8,9 @@ class God {
   static instance = null;
 
   constructor() {
-    let { instance } = God;
     this.human = [];
-    instance =  instance ? instance : this;
-    return instance;
+    God.instance =  God.instance || this;
+    return God.instance;
   }
 
   create(item) {

@@ -53,7 +53,7 @@
 // console.log(god.human);
 
 // const _god = new God();
-// god.create('小刘');
+// _god.create('小刘');
 // console.log(god.human);
 
 
