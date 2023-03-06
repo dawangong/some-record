@@ -41,3 +41,9 @@ class Observer {
 }
 
 module.exports = Observer;
+
+const ob = new Observer();
+ob.$on('update', data => {
+  console.log(data);
+});
+ob.$emit('update', 'aaa');

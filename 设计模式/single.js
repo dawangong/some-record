@@ -22,3 +22,11 @@ class God {
 }
 
 module.exports = God;
+
+const god = God.getInstance();
+god.create('小王');
+console.log(god.human);
+
+const _god = God.getInstance();
+god.create('小刘');
+console.log(god.human);

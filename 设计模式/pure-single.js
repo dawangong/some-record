@@ -19,3 +19,11 @@ class God {
 }
 
 module.exports = God;
+
+const god = new God();
+god.create('小王');
+console.log(god.human);
+
+const _god = new God();
+_god.create('小刘');
+console.log(god.human);
