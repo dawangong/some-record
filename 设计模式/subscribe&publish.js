@@ -48,10 +48,7 @@ class Pub {
   }
 }
 
-module.exports = {
-  Pub: new Pub(),
-  EventBus
-};
+const Pub = new Pub();
 
 const ev1 = new EventBus();
 const ev2 = new EventBus();
