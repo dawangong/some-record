@@ -3,7 +3,7 @@
  * 后进先出 (LIFO原则)
  * size 返回栈长度
  * isEmpty 返回栈内是否有元素
- * push() 添加1-n个新元素到栈顶
+ * push() 添加1个新元素到栈顶
  * pop() 移除栈顶元素 返回被移除的元素
  * peek() 返回栈顶元素
  * clear() 清空栈
@@ -69,8 +69,7 @@ class ObjStack {
   #count;
 
   constructor() {
-    this.#list = {}
-    this.#count = 0;
+    this.#init();
   }
 
   get size () {
@@ -79,6 +78,11 @@ class ObjStack {
 
   get isEmpty () {
     return this.#count === 0;
+  }
+
+  #init() {
+    this.#list = {};
+    this.#count = 0;
   }
 
   push(element) {
@@ -102,8 +106,7 @@ class ObjStack {
   }
 
   clear() {
-    this.#count = 0;
-    this.#list = {};
+    this.#init();
   }
 
   toString() {
