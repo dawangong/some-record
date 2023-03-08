@@ -14,25 +14,29 @@
  * # 声明 private 属性
  * auth: wh
  */
-const { baseEqual, Node } = require("./utils");
+const {
+  baseEqual,
+  Node
+} = require("./utils");
 
 class LinkedList {
-  #count;
-  #head;
+  #
+  count;#
+  head;
 
   constructor() {
     this.#init();
   }
 
-  get size () {
+  get size() {
     return this.#count;
   }
 
-  get isEmpty () {
+  get isEmpty() {
     return this.#count === 0;
   }
 
-  #init() {
+  # init() {
     this.#count = 0;
     this.#head;
   }
@@ -44,11 +48,11 @@ class LinkedList {
   push(ele) {
     const node = new Node(ele);
     let current;
-    if(!this.#head) {
+    if (!this.#head) {
       this.#head = node;
     } else {
       current = this.#head;
-      while(current.next) {
+      while (current.next) {
         current = current.next;
       }
       current.next = node;
@@ -57,10 +61,10 @@ class LinkedList {
   }
 
   getAt(index) {
-    if(index >= 0 && index < this.#count) {
+    if (index >= 0 && index < this.#count) {
       let current = this.#head;
 
-      for(let i = 0; i < index; i++) {
+      for (let i = 0; i < index; i++) {
         current = current.next;
       }
       return current;
@@ -69,10 +73,10 @@ class LinkedList {
   }
 
   removeAt(index) {
-    if(index >= 0 && index < this.#count) {
+    if (index >= 0 && index < this.#count) {
       let current = this.#head;
 
-      if(index === 0) {
+      if (index === 0) {
         this.#head = current.next;
       } else {
         let pre = this.getAt(index - 1);
@@ -87,9 +91,9 @@ class LinkedList {
   }
 
   insert(ele, index) {
-    if(index >= 0 && index < this.#count) {
+    if (index >= 0 && index < this.#count) {
       const node = new Node(ele);
-      if(index === 0) {
+      if (index === 0) {
         let current = this.#head;
         node.next = current;
         this.#head = node;
@@ -109,8 +113,8 @@ class LinkedList {
 
   indexOf(ele) {
     let current = this.#head;
-    for(let i = 0; i < this.#count; i++) {
-      if(baseEqual(ele) === baseEqual(current.ele)) {
+    for (let i = 0; i < this.#count; i++) {
+      if (baseEqual(ele) === baseEqual(current.ele)) {
         return i;
       }
       current = current.next;
@@ -124,18 +128,18 @@ class LinkedList {
   }
 
   toString() {
-    if(!this.#head) {
+    if (!this.#head) {
       return "";
     }
     let str = "";
     let current = this.#head;
-    for(let i = 0; i < this.#count; i++) {
+    for (let i = 0; i < this.#count; i++) {
       str = `${str},${current.ele}`;
       current = current.next;
     }
     return str;
   }
-  
+
 }
 
 
@@ -145,3 +149,58 @@ a.push("2");
 a.insert("5", 0);
 
 console.log(a.size, a.toString());
+
+/**
+ * 双向链表
+ * 可以从尾到头迭代
+ * 能追踪前一个元素
+ * 迭代错过了可以返回上一个元素
+ */
+class DoublyLinkedList extends LinkedList {
+  #tail;
+
+  constructor() {
+    super();
+    this.#tail;
+  }
+
+  insert(ele, index) {
+    if (index >= 0 && index < this.#count) {
+      const node = new Node(ele);
+      let current = this.#head;
+      if (index === 0) {
+        if(current) {
+          node.next = current;
+          current.prev = node;
+          this.#head = node;
+        } else {
+          this.#head = node;
+          this.#tail = node;
+        }
+      } else if(index === this.#count - 1) {
+        current = this.#tail;
+        current.next = node;
+        node.pre = current;
+        this.#tail = node;
+      } else {
+        let pre = this.getAt(index - 1);
+        let current = pre.next;
+        pre.next = node;
+        node.next = current;
+        current.prev = node;
+        node.prev = pre;
+      }
+
+      this.#count++;
+      return true;
+    }
+    return false;
+  }
+}
+
+/**
+ * 单向循环链表
+ * 最后一个next指向头
+ * 双向循环链表
+ * 头prev和尾next互相指向
+ */

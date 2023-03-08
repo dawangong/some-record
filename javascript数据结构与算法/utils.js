@@ -5,6 +5,13 @@ class Node {
   }
 };
 
+class DoublyNode extends Node {
+  constructor(ele) {
+    super(ele);
+    this.prev = prev;
+  }
+}
+
 module.exports = {
   baseEqual: (a, b) => {
     const baseTypes = ["[object String]", "[object Number]", "[object Boolean]", "[object Undefined]", "[object null]" ];
@@ -16,4 +23,5 @@ module.exports = {
     }
   },
   Node,
+  DoublyNode,
 };
