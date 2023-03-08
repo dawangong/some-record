@@ -72,3 +72,12 @@ myQueue.enqueue("a");
 myQueue.enqueue("b");
 
 console.log(myQueue.toString());
+
+/**
+ * 双端队列
+ * 同时满足 先进先出 后进先出 (FIFO + LIFO)
+ * 可以队首添加删除 也可以队尾添加删除
+ * 这不就是js array ?
+ * 唯一不同是 array 时间复杂度高
+ * 不做实现了..
+ */
