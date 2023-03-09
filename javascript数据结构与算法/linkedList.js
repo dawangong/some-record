@@ -20,9 +20,8 @@ const {
 } = require("./utils");
 
 class LinkedList {
-  #
-  count;#
-  head;
+  #count;
+  #head;
 
   constructor() {
     this.#init();
@@ -36,7 +35,7 @@ class LinkedList {
     return this.#count === 0;
   }
 
-  # init() {
+  #init() {
     this.#count = 0;
     this.#head;
   }
@@ -156,12 +155,76 @@ console.log(a.size, a.toString());
  * 能追踪前一个元素
  * 迭代错过了可以返回上一个元素
  */
-class DoublyLinkedList extends LinkedList {
+class DoublyLinkedList {
+  #count;
+  #head;
   #tail;
 
   constructor() {
-    super();
+    this.#init();
+  }
+
+  get size() {
+    return this.#count;
+  }
+
+  get isEmpty() {
+    return this.#count === 0;
+  }
+
+  #init() {
+    this.#count = 0;
+    this.#head;
     this.#tail;
+  }
+
+  getHead() {
+    return this.#head;
+  }
+
+  push(ele) {
+    const node = new Node(ele);
+    let current;
+    if (!this.#head) {
+      this.#head = node;
+    } else {
+      current = this.#head;
+      while (current.next) {
+        current = current.next;
+      }
+      current.next = node;
+    }
+    this.#count++;
+  }
+
+  find(index) {
+    if (index >= 0 && index < this.#count) {
+      let current = this.#head;
+
+      for (let i = 0; i < index; i++) {
+        current = current.next;
+      }
+      return current;
+    }
+    return undefined;
+  }
+
+  removeAt(index) {
+    if (index >= 0 && index < this.#count) {
+      let current = this.#head;
+
+      if (index === 0) {
+        this.#head = current.next;
+      } else {
+        let pre = this.find(index - 1);
+        current = pre.next;
+        // jump
+        pre.next = current.next;
+      }
+      this.#count--;
+      return current.ele;
+    }
+    return undefined;
   }
 
   insert(ele, index) {
@@ -196,6 +259,37 @@ class DoublyLinkedList extends LinkedList {
     }
     return false;
   }
+
+
+  indexOf(ele) {
+    let current = this.#head;
+    for (let i = 0; i < this.#count; i++) {
+      if (baseEqual(ele) === baseEqual(current.ele)) {
+        return i;
+      }
+      current = current.next;
+    }
+    return -1;
+  }
+
+  remove(ele) {
+    const index = this.indexOf(ele);
+    return this.removeAt(index);
+  }
+
+  toString() {
+    if (!this.#head) {
+      return "";
+    }
+    let str = "";
+    let current = this.#head;
+    for (let i = 0; i < this.#count; i++) {
+      str = `${str},${current.ele}`;
+      current = current.next;
+    }
+    return str;
+  }
+  
 }
 
 /**
