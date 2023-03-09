@@ -12,12 +12,27 @@ class DoublyNode extends Node {
   }
 }
 
+const isBase = (value) => {
+  const baseTypes = ["[object String]", "[object Number]", "[object Boolean]", "[object Undefined]", "[object Null]" ];
+  const type = Object.prototype.toString.call(value);
+  return {
+    type,
+    str: `${value}`,
+    result: baseTypes.includes(type),
+  };
+}
+
 module.exports = {
   baseEqual: (a, b) => {
-    const baseTypes = ["[object String]", "[object Number]", "[object Boolean]", "[object Undefined]", "[object null]" ];
-    const isBase = value => baseTypes.includes(Object.prototype.toString.call(value))
-    if(isBase(a) && isBase(b)) {
+    if(isBase(a).result && isBase(b).result) {
       return a === b;
+    } else {
+      throw new Error("not a base data type!");
+    }
+  },
+  baseToString: (v) => {
+    if(isBase(v).result) {
+      return isBase(v).str;
     } else {
       throw new Error("not a base data type!");
     }
