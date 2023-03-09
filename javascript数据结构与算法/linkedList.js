@@ -5,7 +5,7 @@
  * isEmpty 是否为空
  * push() 链表尾部增加一个元素
  * insert() 指定位置新增元素 返回成功失败
- * getAt() 获取特定位置节点 没有返回undefined
+ * find() 获取特定位置节点 没有返回undefined
  * indexOf() 获取元素索引 没有返回-1
  * remove() 移除指定元素 并返回
  * removeAt() 移除指定位置元素 并返回
@@ -60,7 +60,7 @@ class LinkedList {
     this.#count++;
   }
 
-  getAt(index) {
+  find(index) {
     if (index >= 0 && index < this.#count) {
       let current = this.#head;
 
@@ -79,7 +79,7 @@ class LinkedList {
       if (index === 0) {
         this.#head = current.next;
       } else {
-        let pre = this.getAt(index - 1);
+        let pre = this.find(index - 1);
         current = pre.next;
         // jump
         pre.next = current.next;
@@ -98,7 +98,7 @@ class LinkedList {
         node.next = current;
         this.#head = node;
       } else {
-        let pre = this.getAt(index - 1);
+        let pre = this.find(index - 1);
         let current = pre.next;
         pre.next = node;
         node.next = current;
@@ -183,7 +183,7 @@ class DoublyLinkedList extends LinkedList {
         node.pre = current;
         this.#tail = node;
       } else {
-        let pre = this.getAt(index - 1);
+        let pre = this.find(index - 1);
         let current = pre.next;
         pre.next = node;
         node.next = current;

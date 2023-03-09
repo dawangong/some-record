@@ -3,9 +3,9 @@
  * 先进先出 (FIFO原则)
  * size 返回队列长度
  * isEmpty 返回队列是否有元素
- * enqueue() 队尾添加一个元素
- * dequeue() 队头移除一个元素,并返回
- * peek() 返回队列第一个元素
+ * push() 队尾添加一个元素
+ * shift() 队头移除一个元素,并返回
+ * peekF() 返回队列第一个元素
  * clear() 清空队列
  * toString() 返回队列字符串
  * # 声明 private 属性
@@ -35,11 +35,11 @@ class Queue {
     this.#firstCount = 0;
   }
 
-  enqueue(element) {
+  push(element) {
     this.#list[this.#count++] = element;
   }
 
-  dequeue() {
+  shift() {
     if(this.isEmpty) {
       return undefined;
     }
@@ -49,7 +49,7 @@ class Queue {
     return res;
   }
 
-  peek() {
+  peekF() {
     if(this.isEmpty) {
       return undefined;
     }
@@ -68,8 +68,8 @@ class Queue {
 }
 
 const myQueue = new Queue();
-myQueue.enqueue("a");
-myQueue.enqueue("b");
+myQueue.push("a");
+myQueue.push("b");
 
 console.log(myQueue.toString());
 
