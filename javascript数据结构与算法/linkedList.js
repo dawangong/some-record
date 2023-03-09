@@ -90,18 +90,22 @@ class LinkedList {
   }
 
   insert(ele, index) {
-    if (index >= 0 && index < this.#count) {
+    if (index >= 0 && index <= this.#count) {
       const node = new Node(ele);
-      if (index === 0) {
-        let current = this.#head;
-        node.next = current;
+      if(this.size === 0) {
         this.#head = node;
       } else {
-        let pre = this.find(index - 1);
-        let current = pre.next;
-        pre.next = node;
-        node.next = current;
-      }
+        if (index === 0) {
+          let current = this.#head;
+          node.next = current;
+          this.#head = node;
+        } else {
+          let pre = this.find(index - 1);
+          let current = pre.next;
+          pre.next = node;
+          node.next = current;
+        }
+      }    
 
       this.#count++;
       return true;
@@ -136,18 +140,163 @@ class LinkedList {
       str = `${str},${current.ele}`;
       current = current.next;
     }
-    return str;
+    return str.substring(1);
   }
 
 }
 
 
 const a = new LinkedList();
-a.push("1");
-a.push("2");
+// a.push("1");
+// a.push("2");
 a.insert("5", 0);
 
-console.log(a.size, a.toString());
+console.log(a.size, a.toString(), 0);
+
+/**
+ * 单向循环链表
+ * 最后一个next指向头
+ */
+class LoopLinkedList {
+  #count;
+  #head;
+
+  constructor() {
+    this.#init();
+  }
+
+  get size() {
+    return this.#count;
+  }
+
+  get isEmpty() {
+    return this.#count === 0;
+  }
+
+  #init() {
+    this.#count = 0;
+    this.#head;
+  }
+
+  getHead() {
+    return this.#head;
+  }
+
+  push(ele) {
+    const node = new Node(ele);
+    let current;
+    if (!this.#head) {
+      this.#head = node;
+    } else {
+      current = this.#head;
+      while (current.next) {
+        current = current.next;
+      }
+      current.next = node;
+      node.next = this.#head;
+    }
+    this.#count++;
+  }
+
+  find(index) {
+    if (index >= 0 && index < this.#count) {
+      let current = this.#head;
+
+      for (let i = 0; i < index; i++) {
+        current = current.next;
+      }
+      return current;
+    }
+    return undefined;
+  }
+
+  removeAt(index) {
+    if (index >= 0 && index < this.#count) {
+      let current = this.#head;
+
+      if(this.size === 0) {
+        this.#head = current.next;
+      } else {
+        if (index === 0) {
+          const last = this.find(this.size - 1);
+          this.head = this.head.next;
+          last.next = this.head;
+        } else {
+          let pre = this.find(index - 1);
+          current = pre.next;
+          // jump
+          pre.next = current.next;
+        }
+      }
+
+      this.#count--;
+      return current.ele;
+    }
+    return undefined;
+  }
+
+  insert(ele, index) {
+    if (index >= 0 && index <= this.#count) {
+      const node = new Node(ele);
+      if(this.size === 0) {
+        this.#head = node;
+      } else {
+        if (index === 0) {
+          node.next = this.#head;
+          this.#head = node;
+          const last = this.find(this.size - 1);
+          last.next = this.#head;
+        } else {
+          // pre node current
+          let pre = this.find(index - 1);
+          let current = pre.next;
+          pre.next = node;
+          node.next = current;
+        }
+      }    
+
+      this.#count++;
+      return true;
+    }
+    return false;
+  }
+
+
+  indexOf(ele) {
+    let current = this.#head;
+    for (let i = 0; i < this.#count; i++) {
+      if (baseEqual(ele) === baseEqual(current.ele)) {
+        return i;
+      }
+      current = current.next;
+    }
+    return -1;
+  }
+
+  remove(ele) {
+    const index = this.indexOf(ele);
+    return this.removeAt(index);
+  }
+
+  toString() {
+    if (!this.#head) {
+      return "";
+    }
+    let str = "";
+    let current = this.#head;
+    for (let i = 0; i < this.#count; i++) {
+      str = `${str},${current.ele}`;
+      current = current.next;
+    }
+    return str.substring(1);
+  }
+}
+
+const loop = new LoopLinkedList();
+loop.insert("测试1", 0);
+loop.push("测试2");
+console.log(loop.toString(), loop.getHead().next.next);
+
 
 /**
  * 双向链表
@@ -291,10 +440,3 @@ class DoublyLinkedList {
   }
   
 }
-
-/**
- * 单向循环链表
- * 最后一个next指向头
- * 双向循环链表
- * 头prev和尾next互相指向
- */
