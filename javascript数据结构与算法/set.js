@@ -1,7 +1,7 @@
 /** 
  * 集合
  * 一组无序不重复的数据项
- * value value存储
+ * value value 形式存储
  * size 节点数 num
  * isEmpty 是否为空 true | false
  * add() 增加一个元素 true | false
