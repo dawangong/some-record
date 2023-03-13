@@ -52,4 +52,7 @@ module.exports = {
   Node,
   DoublyNode,
   Value,
+  compare: (a, b) => {
+    return a - b;
+  },
 };
